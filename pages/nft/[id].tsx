@@ -85,11 +85,6 @@ fetchPrice();
         console.log(receipt)
         console.log(claimedTockenId)
         console.log(claimedNFT)
-        console.log(obj);
-        console.log(keys);
-        
-      
-        
 
       }).catch(err => {
         toast('Something went wrong', {
