@@ -12,7 +12,7 @@ interface Props {
 
 const Home = ({collections }: Props) => {
   return (
-    <div className="flex min-h-screen flex-col items-center justify-center py-2">
+    <div className="flex flex-col min-h-screen  items-center justify-center py-2">
       <Head>
         <title>Create Next App</title>
         <link rel="icon" href="/favicon.ico" />
@@ -21,21 +21,24 @@ const Home = ({collections }: Props) => {
       <h1>The <span className='text-2xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500'>PAPAFAM</span> NFT Market Place</h1>
         </div>
       
-      <main className=" bg-purple-900 flex w-full h-screen flex-1 flex-col items-center justify-center px-20 text-center">
+      <main className=" bg-purple-900 p-8 flex w-full h-screen flex-1 flex-row items-center justify-center px-20 text-center">
       
-      <div>
+      <div className='flex flex-col md:flex md:flex-row justify-center items-center md:space-x-20 space-y-20 md:space-y-0'>
         
           {collections.map(collection => (
             <Link href={`/nft/${collection.slug.current}`}>
-            <div className='flex flex-col justify-center items-center p-8 border-2 border-indigo-500'>
-             <div className='h-[200px] w-[200px]  flex flex-col justify-center items-center bg-gray-300 rounded-md bg-clip-padding backdrop-filter backdrop-blur-sm bg-opacity-10 border border-gray-100 mb-10'>
-                  <img src={urlFor(collection.mainImage).url()} className='cursor-pointer hover:scale-110 transition transform duration-200 easy-out'/>
+            <div className='cursor-pointer hover:scale-110 transition transform duration-200 easy-out flex flex-row justify-center items-center p-8 border-2 border-indigo-500 w-1/2 md:h-[500px] md:flex md:flex-col '>
+              <div className='flex flex-col justify-center items-center'>
+              <div className='h-[200px] w-[200px]  flex flex-col justify-center items-center bg-gray-300 rounded-md bg-clip-padding backdrop-filter backdrop-blur-sm bg-opacity-10 border border-gray-100 mb-10'>
+                  <img src={urlFor(collection.mainImage).url()} />
                   
               </div>
             <div>
             <h1 className='text-2xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500'>{collection.title}</h1>
               <p className='text-white mt-3'>{collection.description}</p>
               </div>
+              </div>
+            
               </div>
             </Link>
           ))}
